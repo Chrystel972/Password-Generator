@@ -1,4 +1,12 @@
 // Array of special characters to be included in password
+// var passwordLength = prompt("How many characters would you like your password to be");
+// var upperCase = window.confirm("Would you like to include uppercase characters in your password?");
+// var lowerCase = window.confirm("Would you like to include lowercase characters in your password?");
+// var numeric = window.confirm("Would you like to include numbers in your password?");
+// var specials = window.confirm("Would you like to include special characters ie. #/$£*, in your password?");
+
+
+
 var specialCharacters = [
   '@',
   '%',
@@ -90,7 +98,12 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  passwordLength = prompt("How many characters would you like your password to be");
+  upperCase = window.confirm("Would you like to include uppercase characters in your password?");
+  lowerCase = window.confirm("Would you like to include lowercase characters in your password?");
+  numeric = window.confirm("Would you like to include numbers in your password?");
+  specials = window.confirm("Would you like to include special characters ie. #/$£*, in your password?");
+   
 }
 
 // Function for getting a random element from an array
@@ -116,3 +129,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+getPasswordOptions()
