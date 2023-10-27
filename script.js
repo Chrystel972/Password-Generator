@@ -117,23 +117,29 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
   passwordLength = prompt("How many characters would you like your password to be")
+  passwordLength = Number(passwordLength)
   while (passwordLength < 8 || passwordLength >128){
    alert("Password has to be a minimum of 8 characters and max 128 characters, please try again");
   getPasswordOptions()
  } if (passwordLength > 8 || passwordLength < 128){
   alert("Your password will have " + passwordLength + " characters");
  }
-var upperCase = window.confirm("Would you like to include uppercase characters in your password?");
-var lowerCase = window.confirm("Would you like to include lowercase characters in your password?");
-var numeric = window.confirm("Would you like to include numbers in your password?");
-var specials = window.confirm("Would you like to include special characters ie. #/$£*, in your password?");
+upperCase = window.confirm("Would you like to include uppercase characters in your password?");
+lowerCase = window.confirm("Would you like to include lowercase characters in your password?");
+numeric = window.confirm("Would you like to include numbers in your password?");
+specials = window.confirm("Would you like to include special characters ie. #/$£*, in your password?");
 }
-getPasswordOptions()
+
+// console.log(passwordLength);
+// console.log(upperCase);
+// console.log(lowerCase);
+// console.log(numeric);
+// console.log(specials);
 
 // // Function for getting a random element from an array
-// function getRandom(arr) {
+function getRandom(arr) {
 
-// }
+}
 
 // // Function to generate password with user input
 // function generatePassword() {
@@ -153,3 +159,4 @@ getPasswordOptions()
 
 // // Add event listener to generate button
 // generateBtn.addEventListener('click', writePassword);
+getPasswordOptions();
