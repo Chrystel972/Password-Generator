@@ -138,13 +138,13 @@ specials = window.confirm("Would you like to include special characters ie. #/$Â
 
 // // Function for getting a random element from an array
 function getRandom(arr) {
-
+console.log(lowerCasedCharacters[Math.floor(Math.random()*lowerCasedCharacters.length)])
 }
 
 // // Function to generate password with user input
-// function generatePassword() {
+function generatePassword() {
 
-// }
+}
 
 // // Get references to the #generate element
 // var generateBtn = document.querySelector('#generate');
@@ -160,3 +160,4 @@ function getRandom(arr) {
 // // Add event listener to generate button
 // generateBtn.addEventListener('click', writePassword);
 getPasswordOptions();
+getRandom();
