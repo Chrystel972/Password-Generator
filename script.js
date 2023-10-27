@@ -5,6 +5,24 @@
 // var numeric = window.confirm("Would you like to include numbers in your password?");
 // var specials = window.confirm("Would you like to include special characters ie. #/$£*, in your password?");
 
+// passwordLength = prompt("How many characters would you like your password to be")
+//  while (passwordLength < 8 ){
+//   prompt("Password has to be a minimum of 8 characters and max 128 characters, please try again");
+// } if (passwordLength > 8){
+//   alert("Your password will have " + passwordLength + " characters")
+// }
+//   else (passwordLength > 8);
+// prompt("Your password will have" + passwordLength + " characters");
+//  }
+// do {
+//   prompt("Password has to be a minimum of 8 characters and max 128 characters, please try again")
+// }
+// while (passwordLength < 8 || passwordLength >128);
+
+  // upperCase = window.confirm("Would you like to include uppercase characters in your password?");
+  // lowerCase = window.confirm("Would you like to include lowercase characters in your password?");
+  // numeric = window.confirm("Would you like to include numbers in your password?");
+  // specials = window.confirm
 
 
 var specialCharacters = [
@@ -98,36 +116,40 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  passwordLength = prompt("How many characters would you like your password to be");
-  upperCase = window.confirm("Would you like to include uppercase characters in your password?");
-  lowerCase = window.confirm("Would you like to include lowercase characters in your password?");
-  numeric = window.confirm("Would you like to include numbers in your password?");
-  specials = window.confirm("Would you like to include special characters ie. #/$£*, in your password?");
-   
+  passwordLength = prompt("How many characters would you like your password to be")
+  while (passwordLength < 8 || passwordLength >128){
+   alert("Password has to be a minimum of 8 characters and max 128 characters, please try again");
+  getPasswordOptions()
+ } if (passwordLength > 8 || passwordLength < 128){
+  alert("Your password will have " + passwordLength + " characters");
+ }
+var upperCase = window.confirm("Would you like to include uppercase characters in your password?");
+var lowerCase = window.confirm("Would you like to include lowercase characters in your password?");
+var numeric = window.confirm("Would you like to include numbers in your password?");
+var specials = window.confirm("Would you like to include special characters ie. #/$£*, in your password?");
 }
-
-// Function for getting a random element from an array
-function getRandom(arr) {
-
-}
-
-// Function to generate password with user input
-function generatePassword() {
-
-}
-
-// Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
-
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
-
 getPasswordOptions()
+
+// // Function for getting a random element from an array
+// function getRandom(arr) {
+
+// }
+
+// // Function to generate password with user input
+// function generatePassword() {
+
+// }
+
+// // Get references to the #generate element
+// var generateBtn = document.querySelector('#generate');
+
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector('#password');
+
+//   passwordText.value = password;
+// }
+
+// // Add event listener to generate button
+// generateBtn.addEventListener('click', writePassword);
