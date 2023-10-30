@@ -113,28 +113,51 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+var passwordLength = 0;
+var upperCase;
+var lowerCase;
+var numeric;
+var specials;
+
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  passwordLength = prompt("How many characters would you like your password to be")
-  passwordLength = Number(passwordLength)
-  while (passwordLength < 8 || passwordLength >128){
+  let combination = []
+  passwordLength = prompt("How many characters would you like your password to be");
+  passwordLength = +passwordLength
+  if (passwordLength < 8 || passwordLength >128){
    alert("Password has to be a minimum of 8 characters and max 128 characters, please try again");
   getPasswordOptions()
- } if (passwordLength > 8 || passwordLength < 128){
+ } else if (passwordLength > 8 || passwordLength < 128){
   alert("Your password will have " + passwordLength + " characters");
+  upperCase = confirm("Would you like to include uppercase characters in your password?")
+  if (upperCase === true){
+combination = combination.concat(upperCasedCharacters);
+  };
+  lowerCase = confirm("Would you like to include lowercase characters in your password?");
+  if (lowerCase === true){
+    combination = combination.concat(lowerCasedCharacters);
+  }
+  numeric = confirm("Would you like to include numbers in your password?");
+  if (numeric === true){
+    combination = combination.concat(numericCharacters);
+  }
+  specials = confirm("Would you like to include special characters ie. #/$£*, in your password?");
+  if ( specials===true){
+    combination = combination.concat(specialCharacters);
+  }
+  let password = ""
+  for(let i=0; i<passwordLength;i++){
+    password = password + combination[Math.floor(Math.random()*combination.length)];
+  }
+  return password
  }
-upperCase = window.confirm("Would you like to include uppercase characters in your password?");
-lowerCase = window.confirm("Would you like to include lowercase characters in your password?");
-numeric = window.confirm("Would you like to include numbers in your password?");
-specials = window.confirm("Would you like to include special characters ie. #/$£*, in your password?");
+
 }
 
-// console.log(passwordLength);
-// console.log(upperCase);
-// console.log(lowerCase);
-// console.log(numeric);
-// console.log(specials);
+
+
+console.log(passwordLength)
 
 // // Function for getting a random element from an array
 function getRandom(arr) {
@@ -143,21 +166,22 @@ console.log(lowerCasedCharacters[Math.floor(Math.random()*lowerCasedCharacters.l
 
 // // Function to generate password with user input
 function generatePassword() {
-
+  return getPasswordOptions();
+  // return "This works!!!"
 }
 
 // // Get references to the #generate element
-// var generateBtn = document.querySelector('#generate');
+var generateBtn = document.querySelector('#generate');
 
 // // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector('#password');
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector('#password');
 
-//   passwordText.value = password;
-// }
+  passwordText.value = password;
+}
 
 // // Add event listener to generate button
-// generateBtn.addEventListener('click', writePassword);
-getPasswordOptions();
+generateBtn.addEventListener('click', writePassword);
+
 getRandom();
